@@ -23,6 +23,15 @@ export const Cart = () => {
                 <CartItem item={item} key={item.pizzaId} />
             ))}
             </ul>
+            <div >
+            <Button to="/order/new">
+                Order pizzas
+            </Button>
+
+            <Button onClick={() => dispatch(clearCart())}>
+                Clear cart
+            </Button>
+        </div>
 
         </div>
 

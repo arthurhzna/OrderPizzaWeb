@@ -1,4 +1,4 @@
-import { PizzaProps, MenuData } from "../types";
+import { PizzaProps, MenuData, Order } from "../types";
 
 const API_URL = 'https://react-fast-pizza-api.jonas.io/api';
 
@@ -20,23 +20,23 @@ export async function getMenu(): Promise<PizzaProps[]> {
 //   return data;
 // }
 
-// export async function createOrder(newOrder) {
-//   try { 
-//     const res = await fetch(`${API_URL}/order`, {
-//       method: "POST",
-//       body: JSON.stringify(newOrder),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
+export async function createOrder(newOrder : Order ) {
+  try { 
+    const res = await fetch(`${API_URL}/order`, {
+      method: "POST",
+      body: JSON.stringify(newOrder),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//     if (!res.ok) throw Error();
-//     const { data } = await res.json();
-//     return data;
-//   } catch {
-//     throw Error("Failed creating your order");
-//   }
-// }
+    if (!res.ok) throw Error();
+    const { data } = await res.json();
+    return data;
+  } catch {
+    throw Error("Failed creating your order");
+  }
+}
 
 // export async function updateOrder(id, updateObj) {
 //   try {
