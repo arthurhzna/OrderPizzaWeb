@@ -12,13 +12,13 @@ export async function getMenu(): Promise<PizzaProps[]> {
   return data;
 }
 
-// export async function getOrder(id) {
-//   const res = await fetch(`${API_URL}/order/${id}`);
-//   if (!res.ok) throw Error(`Couldn't find order #${id}`);
+export async function getOrder(id : string) {
+  const res = await fetch(`${API_URL}/order/${id}`);
+  if (!res.ok) throw Error(`Couldn't find order #${id}`);
 
-//   const { data } = await res.json();
-//   return data;
-// }
+  const { data } = await res.json();
+  return data;
+}
 
 export async function createOrder(newOrder : Order ) {
   try { 
@@ -38,19 +38,19 @@ export async function createOrder(newOrder : Order ) {
   }
 }
 
-// export async function updateOrder(id, updateObj) {
-//   try {
-//     const res = await fetch(`${API_URL}/order/${id}`, {
-//       method: "PATCH",
-//       body: JSON.stringify(updateObj),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
+export async function updateOrder(orderid: string, updateObj: { priority: boolean }) {
+  try {
+    const res = await fetch(`${API_URL}/order/${orderid}`, {
+      method: "PATCH",
+      body: JSON.stringify(updateObj),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-//     if (!res.ok) throw Error();
-//     // We don't need the data, so we don't return anything
-//   } catch (err) {
-//     throw Error("Failed updating your order");
-//   }
-// }
+    if (!res.ok) throw Error();
+    // We don't need the data, so we don't return anything
+  } catch (err) {
+    throw Error("Failed updating your order");
+  }
+}

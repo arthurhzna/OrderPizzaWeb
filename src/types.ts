@@ -12,7 +12,7 @@ export interface LinkButtonProps{
     to: string;
 }
 
-export interface CartItem {
+export interface CartItemProps {
     pizzaId: number;
     name: string;
     quantity: number;
@@ -20,8 +20,21 @@ export interface CartItem {
     totalPrice: number;
 }
 
+export interface FormData {
+    customer: string;
+    phone: string;
+    address: string;
+    priority: string;
+    cart: string;
+    position: string;
+}
+export interface Order extends Omit<FormData, 'cart' | 'priority'> {
+    cart: CartItemProps[];
+    priority: boolean;
+}
+
 export interface CartState {
-    cart: CartItem[];
+    cart: CartItemProps[];
 }
 
 export interface Position {
@@ -56,4 +69,24 @@ export interface PizzaProps {
 export interface MenuData {
     status: string;
     data: PizzaProps[];
+}
+
+export interface FormErrors{
+    phone?: string;
+}
+
+export interface OrderProps {
+    item: CartItemProps;
+    isLoadingIngredients: Boolean;
+    ingredients: string[];
+}
+
+export interface OrderData {
+    id: string;
+    status: string;
+    priority: boolean;
+    priorityPrice: number;
+    orderPrice: number;
+    estimatedDelivery: string;
+    cart: CartItemProps[];  // Make sure CartItemProps is imported from your types
 }
