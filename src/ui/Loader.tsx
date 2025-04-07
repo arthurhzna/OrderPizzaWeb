@@ -1,8 +1,7 @@
 export const Loader = () => {
     return  (
-        <div>
-            <h1>LOADING</h1>
-            
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-200/20 backdrop-blur-sm">
+            <h1 className="loader"></h1>
         </div>
     );
 }

@@ -50,11 +50,19 @@ export interface UserState {
     error: string;
 }
 
+// export interface ButtonProps {
+//     children: ReactNode;
+//     disabled?: boolean;
+//     to?: string;
+//     onClick?: () => void;
+// }
+
 export interface ButtonProps {
     children: ReactNode;
     disabled?: boolean;
     to?: string;
     onClick?: () => void;
+    type?: 'primary' | 'small' | 'round' | 'secondary';
 }
 
 export interface PizzaProps {
@@ -90,3 +98,4 @@ export interface OrderData {
     estimatedDelivery: string;
     cart: CartItemProps[];  // Make sure CartItemProps is imported from your types
 }
+

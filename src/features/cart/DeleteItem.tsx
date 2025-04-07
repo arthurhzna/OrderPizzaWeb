@@ -7,7 +7,7 @@ export const DeleteItem = ( { pizzaId }: { pizzaId: number }) => {
     const dispatch = useDispatch();
 
     return (
-        <Button  onClick={() => dispatch(deleteItem(pizzaId))}>
+        <Button  type="small" onClick={() => dispatch(deleteItem(pizzaId))}>
           Delete
         </Button>
       );

@@ -9,7 +9,7 @@ export const Error = () => {
     <div>
         <h1>Something went wrong 😢</h1>
         <p>{error.data || error.message}</p>
-        <LinkButton to="-1">&larr; Go back</LinkButton>
+        <LinkButton className = 'text-sm text-blue-500 hover:text-blue-600 hover:underline' to="-1">&larr; Go back</LinkButton>
     </div>
 
     );
